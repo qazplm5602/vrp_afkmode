@@ -1,9 +1,9 @@
 -- CONFIG --
---local display = true
--- AFK Kick Time Limit (in seconds)
+
+-- 시간초
 secondsUntilafk = 1800
 
--- Warn players if 3/4 of the Time Limit ran up
+-- 잠수 모드 곧 진입 안내
 afkWarning = true
 
 -- CODE --
@@ -38,9 +38,6 @@ Citizen.CreateThread(function()
 end)
 
 function enableMenu()
---    TriggerServerEvent("vrp_stockmarket:updateStocks")
-
-    --SetNuiFocus(true, true)
     SendNUIMessage({
         type = 'open'
     })
@@ -52,9 +49,6 @@ AddEventHandler("domi_afk:afkopen", function()
 end)
 
 function domiclose()
---    TriggerServerEvent("vrp_stockmarket:updateStocks")
-
-    --SetNuiFocus(true, true)
     SendNUIMessage({
         type = 'close'
     })
@@ -64,18 +58,3 @@ RegisterNetEvent("domi_afk:afkclose")
 AddEventHandler("domi_afk:afkclose", function()
     domiclose()
 end)
-
-
---[[function disableMenu()
-  --  SetNuiFocus(false, false)
-    SendNUIMessage({
-        type = 'close'
-    })
-end
-
-RegisterNetEvent("domi_afk:afkclose")
-AddEventHandler("domi_afk:afkclose", function()
-    SendNUIMessage({
-        type = 'close'
-    })
-end]]
